@@ -12,10 +12,6 @@ public class ProposalID {
 		return number;
 	}
 
-	public void setNumber(int number) {
-		this.number = number;
-	}
-
 	public void incrementNumber() {
 		this.number += 1;
 	}
@@ -34,10 +30,6 @@ public class ProposalID {
 
 	public boolean isGreaterThan(ProposalID rhs) {
 		return compare(rhs) > 0;
-	}
-
-	public boolean isLessThan(ProposalID rhs) {
-		return compare(rhs) < 0;
 	}
 
 	@Override

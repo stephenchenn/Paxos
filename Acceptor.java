@@ -6,12 +6,23 @@ public class Acceptor {
 	protected ProposalID acceptedID = null;
 	protected int acceptedValue = -1;
 
+	protected ProposalID finalProposalID = null;
+	protected int finalValue = -1;
+
 	public Acceptor(String acceptorUID) {
 		this.acceptorUID = acceptorUID;
 	}
 
 	public void setMessenger (Messenger messenger){
 		this.messenger = messenger;
+	}
+
+	public ProposalID getFinalProposalID () {
+		return finalProposalID;
+	}
+
+	public int getFinalValue () {
+		return finalValue;
 	}
 
 	public void start (){
@@ -32,7 +43,6 @@ public class Acceptor {
 			// reply prepare_ok(n, n_a, v_a)
 			
 			return promise;
-			// messenger.sendPromise(acceptorUID, proposalID, acceptedID, acceptedValue);
 		}
 		return null;
 	}
@@ -46,11 +56,14 @@ public class Acceptor {
 
 			AcceptRequest accepted = new AcceptRequest(acceptedID, acceptedValue);
 			return accepted; // reply accept_ok(n)
-
-			// messenger.sendAccepted(acceptedID, acceptedValue); 
 		} else {
 			return null;
 		}
+	}
+
+	public void resolution (int id, String uid, int value) {
+		finalProposalID = new ProposalID(id, uid);
+		finalValue = value;
 	}
 
 	public Messenger getMessenger() {

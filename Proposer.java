@@ -78,17 +78,6 @@ public class Proposer {
 		return null;
 	}
 
-	// public AcceptRequest checkPromiseCount() {
-	// 	if (promisesReceived.size() == quorumSize) {
-	// 		if (proposedValue != -1) {
-	// 			// send accept(n, v’) to all
-	// 			AcceptRequest req = new AcceptRequest(this.proposalID, proposedValue);
-	// 			return req;
-	// 		}
-	// 	}
-	// 	return null;
-	// }
-
 	public Messenger getMessenger() {
 		return messenger;
 	}

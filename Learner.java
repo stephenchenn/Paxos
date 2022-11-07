@@ -42,7 +42,6 @@ public class Learner{
 			return null;
 		}
 
-		// confusing start
 		ProposalID oldPID = acceptors.get(fromUID);
 		// make sure the received proposal is not duplicate or out of date
 		if (oldPID != null && !proposalID.isGreaterThan(oldPID)){
@@ -56,8 +55,6 @@ public class Learner{
 			if (oldProposal.retentionCount == 0)
 				proposals.remove(oldPID);
 		}
-		//confusing end
-
 
 		if (!proposals.containsKey(proposalID))
 			proposals.put(proposalID, new Proposal(0, 0, acceptedValue));
@@ -77,7 +74,6 @@ public class Learner{
 			// send decided(v’) to all
 			AcceptRequest resolution = new AcceptRequest(proposalID, acceptedValue);
 			return resolution;
-			//messenger.onResolution(proposalID, acceptedValue);
 		}
 
 		return null;
